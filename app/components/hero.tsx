@@ -109,7 +109,7 @@ export default function Hero({ isAuth = false, onSignIn }: HeroProps) {
               size="lg"
               className="border-border bg-background/50 flex items-center gap-2 rounded-full backdrop-blur-sm"
             >
-              <Link href="" >
+              <Link href="#portfolios" >
                 See Templates
               </Link>
             </Button>

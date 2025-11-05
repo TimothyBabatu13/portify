@@ -1,8 +1,9 @@
-import Image from "next/image";
 import { LandingNavbar } from "./components/nav-bar";
 import Hero from "./components/hero";
 import GridOverlay from "./components/grid-overlay";
+import AvailablePortfolios from "./components/available-portfolios";
 import Features from "./components/features";
+import Footer from "./components/footer";
 
 export default function Home() {
   return (
@@ -13,8 +14,11 @@ export default function Home() {
       <GridOverlay />
       {/* Hero Section */}
       <Hero />
-      {/* Features Section */}
+ 
+      <AvailablePortfolios />
       <Features />
+
+      <Footer />
 </div>
   );
 }

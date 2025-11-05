@@ -13,12 +13,12 @@ type LandingNavbarProps = {
 export function LandingNavbar({ isAuth = false, onSignOut, onSignIn }: LandingNavbarProps) {
   const navItems = [
     {
-      name: "Features",
-      link: "#features",
+      name: "Portfolios",
+      link: "#portfolios",
     },
     {
-      name: "Contact",
-      link: "#contact",
+      name: "Features",
+      link: "#features",
     },
   ];
 

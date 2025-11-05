@@ -1,44 +1,42 @@
 import {
-    Paintbrush,
-    Rocket,
-    Github,
-    Search,
-    Pencil,
-    Puzzle,
+    Compass,
+    Zap,
+    User,
+    ShieldCheck,
+    Wand,
   } from 'lucide-react';
-import PortfolioCard from './portfolio-card';
   
   const features = [
     {
-      icon: <Pencil className="h-6 w-6" />,
+      icon: <Compass className="h-6 w-6" />,
       title: 'Beginner-Friendly',
-      desc: 'User-friendly interface for easy navigation and understanding.',
+      desc: 'Create your professional portfolio in minutes. No code, no setup — just your details and your story, perfectly presented.',
     },
     {
-      icon: <Puzzle className="h-6 w-6" />,
-      title: 'Passive Learning',
-      desc: 'Interactive learning experience by building your own concept maps.',
+      icon: <Zap className="h-6 w-6" />,
+      title: 'Instant Publishing',
+      desc: 'One click and your portfolio goes live. Hosted instantly on a unique Portify link (e.g., yourname.portify.io).',
     },
     {
-      icon: <Paintbrush className="h-6 w-6" />,
-      title: 'Easily Customizable',
-      desc: 'Drag and place your own blocks of information anywhere you want',
+      icon: <User className="h-6 w-6" />,
+      title: 'For Every Creator',
+      desc: 'Developers, designers, freelancers — anyone can find a layout that fits their personal brand perfectly.',
     },
     {
-      icon: <Rocket className="h-6 w-6" />,
-      title: 'Discover new concepts',
-      desc: 'Explore new concepts and ideas with ease and clarity.',
+      icon: <ShieldCheck className="h-6 w-6" />,
+      title: 'Reliable & Fast',
+      desc: 'Your portfolio is hosted securely and optimized for performance — fast load times and global delivery by default.',
     },
     {
-      icon: <Search className="h-6 w-6" />,
-      title: 'Never scroll for studying',
-      desc: 'Zoom in and out of your study canvas to see the big picture for quick revision.',
+      icon: <Wand className="h-6 w-6" />,
+      title: 'Always Evolving',
+      desc: 'New templates, customization options, and integrations are added regularly to help you stand out effortlessly.',
     },
-    {
-      icon: <Github className="h-6 w-6" />,
-      title: 'Fully Open Source',
-      desc: 'Your can clone the project and run it locally. Customize it to your liking.',
-    },
+    // {
+    //   icon: <Github className="h-6 w-6" />,
+    //   title: 'Fully Open Source',
+    //   desc: 'Your can clone the project and run it locally. Customize it to your liking.',
+    // },
   ];
   export default function Features() {
     return (
@@ -59,24 +57,6 @@ import PortfolioCard from './portfolio-card';
           </div>
           <hr className="bg-foreground/30 mx-auto mt-5 h-px w-1/2" />
           <div className="relative mt-12">
-            <div className='grid gap-8 sm:grid-cols-2 lg:grid-cols-3'>
-                <PortfolioCard 
-                    img='/img_test.jpg'
-                    href=''
-                />
-                <PortfolioCard 
-                    img='/img_test.jpg'
-                    href=''
-                />
-                <PortfolioCard 
-                    img='/img_test.jpg'
-                    href=''
-                />
-                <PortfolioCard 
-                    img='/img_test.jpg'
-                    href=''
-                />
-            </div>
             <ul className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
               {features.map((item, idx) => (
                 <li
