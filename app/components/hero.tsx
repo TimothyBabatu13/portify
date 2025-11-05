@@ -5,6 +5,7 @@ import { ArrowRight, ChevronRight, Github } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 import { HeroAnimatedText } from './hero-animated-text';
+import Image from 'next/image';
 
 type HeroProps = {
   isAuth?: boolean;
@@ -135,11 +136,20 @@ export default function Hero({ isAuth = false, onSignIn }: HeroProps) {
                   <div className="h-3 w-3 rounded-full bg-green-500"></div>
                 </div>
                 <div className="bg-background/50 font-sans text-muted-foreground mx-auto flex items-center rounded-md px-3 py-1 text-xs">
-                  https:www.google.com
+                  https://portify-silk-eight.vercel.app/
                 </div>
               </div>
-              <div className="relative">
-                <video src="/conceptmapai-demo.mp4" autoPlay loop muted className='w-full h-full object-cover'></video>
+              <div className="relative h-[300px]">
+                <Image 
+                  src="/screenshot/hero_gif.gif"
+                  alt="Hero Image"
+                  // width={1200}
+                  // height={600}
+                  fill
+                  className='w-full h-full object-fill'
+                  unoptimized
+                />
+                <video src="/screenshot/hero_gif.gif" autoPlay loop muted className='w-full h-full object-cover'></video>
                 <div className="from-background absolute inset-0 bg-gradient-to-t to-transparent opacity-0"></div>
               </div>
             </div>
