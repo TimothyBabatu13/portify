@@ -43,7 +43,7 @@ export default function Hero({ isAuth = false, onSignIn }: HeroProps) {
           </motion.div>
 
           <HeroAnimatedText 
-            className='from-violet-500/10 via-violet-500/85 to-violet-500/50 bg-gradient-to-tl bg-clip-text text-center text-4xl tracking-tighter text-balance text-transparent sm:text-5xl md:text-6xl lg:text-7xl '
+            className='from-violet-500/10 via-violet-500/85 to-violet-500/50 bg-gradient-to-tl bg-clip-text text-center text-3xl tracking-tighter text-balance text-transparent sm:text-5xl md:text-6xl lg:text-7xl '
           />
 
           {/* Description */}

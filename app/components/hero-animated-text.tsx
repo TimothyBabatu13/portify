@@ -8,7 +8,7 @@ export const HeroAnimatedText = ({ className } : {
 }) => {
     return(
         <motion.div 
-            className={cn(`text-4xl font-bold wrap-break-word justify-center gap-px ${className}`)}
+            className={cn(`font-bold wrap-break-word justify-center gap-px ${className}`)}
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.1 }}
