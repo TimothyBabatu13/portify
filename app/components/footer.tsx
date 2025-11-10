@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Twitter, Instagram, Youtube } from "lucide-react";
 import Year from "./time";
+import { Suspense } from "react";
 const socialLinks = [
   { icon: Twitter, name: "Twitter", href: "#" },
   { icon: Instagram, name: "Instagram", href: "#" },
@@ -50,11 +51,13 @@ export default function Footer() {
                 </div>
             </div>
             <hr className="my-8 bg-accent" />
-            <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-                <p className="text-sm text-muted-foreground">
-                © <Year /> Portfify. All rights reserved.
-                </p>
-            </div>
+            <Suspense fallback={null}>
+                <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+                    <p className="text-sm text-muted-foreground">
+                    © <Year /> Portfify. All rights reserved.
+                    </p>
+                </div>
+            </Suspense>
             </div>
         </div>
         </footer>

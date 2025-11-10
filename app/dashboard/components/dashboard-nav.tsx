@@ -4,19 +4,16 @@ import Link from "next/link"
 import { Button } from "@/components/ui/button"
 
 interface DashboardNavProps {
-  user: {
     name: string
-    email: string
     portfolioName: string
-  }
 }
 
-export function DashboardNav({ user }: DashboardNavProps) {
+export function DashboardNav({ name, portfolioName }: DashboardNavProps) {
   return (
     <header className="border-b border-border sticky top-0 bg-background/95 backdrop-blur">
       <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
         <div className="flex items-center gap-8">
-          <Link href="/dashboard" className="text-2xl font-bold text-foreground">
+          <Link href="/" className="text-2xl font-bold text-foreground">
             Portfolio
           </Link>
           <nav className="hidden md:flex gap-6">
@@ -37,8 +34,8 @@ export function DashboardNav({ user }: DashboardNavProps) {
 
         <div className="flex items-center gap-4">
           <div className="hidden sm:block text-right text-sm">
-            <p className="font-medium text-foreground">{user.name}</p>
-            <p className="text-muted-foreground">{user.portfolioName}</p>
+            <p className="font-medium text-foreground">{name}</p>
+            <p className="text-muted-foreground">{portfolioName}</p>
           </div>
           <Button variant="outline" size="sm">
             Sign Out

@@ -1,18 +1,17 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { ArrowRight, ChevronRight, Github } from 'lucide-react';
+import { ArrowRight, ChevronRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 import { HeroAnimatedText } from './hero-animated-text';
 import Image from 'next/image';
 
 type HeroProps = {
-  isAuth?: boolean;
-  onSignIn?: () => Promise<void>;
+  isAuthenticated: boolean;
 };
 
-export default function Hero({ isAuth = false, onSignIn }: HeroProps) {
+export default function Hero({ isAuthenticated }: HeroProps) {
   return (
     <div className="relative w-full overflow-hidden">
       {/* Background gradient */}
@@ -63,13 +62,13 @@ export default function Hero({ isAuth = false, onSignIn }: HeroProps) {
             transition={{ duration: 0.5, delay: 0.3 }}
             className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row"
           >
-            {isAuth ? (
+            {isAuthenticated ? (
               <Button
                 asChild
                 size="lg"
                 className="group text-white bg-violet-500 hover:shadow-primary/30 relative overflow-hidden rounded-full px-6 shadow-lg transition-all duration-300"
               >
-                <Link href="/map">
+                <Link href="/dashboard">
                   <span className="relative z-10 flex items-center">
                     Explore Now
                     <ArrowRight className="ml-2 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
@@ -78,43 +77,32 @@ export default function Hero({ isAuth = false, onSignIn }: HeroProps) {
                 </Link>
               </Button>
             ) : (
-              onSignIn ? (
-                <form action={onSignIn}>
-                  <Button
-                    size="lg"
-                    className="group text-white bg-violet-500 hover:shadow-primary/30 relative overflow-hidden rounded-full px-6 shadow-lg transition-all duration-300"
-                  >
-                    <span className="relative z-10 flex items-center">
-                      Sign in to get started
-                      <ArrowRight className="ml-2 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
-                    </span>
-                    <span className="from-violet-500 via-violet-500/90 to-violet-500/80 absolute inset-0 z-0 bg-gradient-to-r opacity-0 transition-opacity duration-300 group-hover:opacity-100"></span>
-                  </Button>
-                </form>
-              ) : (
-                <Button
-                  size="lg"
-                  className="group text-white bg-violet-500 hover:shadow-primary/30 relative overflow-hidden rounded-full px-6 shadow-lg transition-all duration-300"
-                >
-                  <span className="relative z-10 flex items-center">
-                    Start My Portfolio
-                    <ArrowRight className="ml-2 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
-                  </span>
-                  <span className="from-violet-500 via-violet-500/90 to-violet-500/80 absolute inset-0 z-0 bg-gradient-to-r opacity-0 transition-opacity duration-300 group-hover:opacity-100"></span>
-                </Button>
-              )
-            )}
-
-            <Button asChild
-              variant="outline"
+            <Button
               size="lg"
-              className="border-border bg-background/50 flex items-center gap-2 rounded-full backdrop-blur-sm"
+              className="group text-white bg-violet-500 hover:shadow-primary/30 relative overflow-hidden rounded-full px-6 shadow-lg transition-all duration-300"
             >
-              <Link href="#portfolios" >
-                See Templates
+              <Link 
+                href={'/api/auth/google'}
+              >
+                <span className="relative z-10 flex items-center">
+                  Start My Portfolio
+                  <ArrowRight className="ml-2 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
+                </span>
+                <span className="from-violet-500 via-violet-500/90 to-violet-500/80 absolute inset-0 z-0 bg-gradient-to-r opacity-0 transition-opacity duration-300 group-hover:opacity-100"></span>
               </Link>
             </Button>
-          </motion.div>
+          )}
+          <Button 
+            asChild
+            variant="outline"
+            size="lg"
+            className="border-border bg-background/50 flex items-center gap-2 rounded-full backdrop-blur-sm"
+          >
+            <Link href="#portfolios" >
+              See Templates
+            </Link>
+          </Button>
+        </motion.div>
 
           {/* Feature Image */}
           <motion.div

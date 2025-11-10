@@ -1,11 +1,13 @@
 import { LandingNavbar } from "./components/nav-bar";
-import Hero from "./components/hero";
 import GridOverlay from "./components/grid-overlay";
 import AvailablePortfolios from "./components/available-portfolios";
 import Features from "./components/features";
 import Footer from "./components/footer";
+import { Suspense } from "react";
+import HeroWrapper from "./components/hero-wrapper";
 
-export default function Home() {
+const Home = () => {
+
   return (
     <div className="min-h-screen w-full bg-[#f8fafc] relative">
       {/* NavBar */}
@@ -13,7 +15,9 @@ export default function Home() {
       {/* Grid Overlay */}
       <GridOverlay />
       {/* Hero Section */}
-      <Hero />
+      <Suspense fallback={null}>
+        <HeroWrapper />
+      </Suspense>
  
       <AvailablePortfolios />
       <Features />
@@ -22,3 +26,5 @@ export default function Home() {
 </div>
   );
 }
+
+export default Home;

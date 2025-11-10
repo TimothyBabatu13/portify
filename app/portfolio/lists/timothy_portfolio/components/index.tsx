@@ -139,7 +139,7 @@ export default function Page({ data } : {
           <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 max-w-[800px] mx-auto">
             {data.projects.list.map((project, id) => (
               <BlurFade
-                key={crypto.randomUUID()}
+                key={id}
                 delay={BLUR_FADE_DELAY * 12 + id * 0.05}
               >
                 <ProjectCard
