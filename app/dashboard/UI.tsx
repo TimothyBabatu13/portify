@@ -34,8 +34,7 @@ export const UI = async () => {
     return redirect('/');
   }
 
-  console.log(response)
-
+  console.log(response.family_name)
   return (
     <main className="min-h-screen bg-background">
       <DashboardNav 
@@ -48,7 +47,7 @@ export const UI = async () => {
           <div className="flex items-center justify-between">
             <div className="max-w-2xl">
               <h1 className="text-4xl font-bold text-foreground text-balance">
-                Welcome back, {user.name.split(" ")[0]}
+                Welcome back, {response.name.split(" ")[0]}
               </h1>
               <p className="text-muted-foreground mt-3 text-base leading-relaxed">
                 Track your portfolio performance and manage your creative work

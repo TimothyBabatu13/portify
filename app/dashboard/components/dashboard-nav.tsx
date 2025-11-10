@@ -1,7 +1,7 @@
-"use client"
 
 import Link from "next/link"
-import { Button } from "@/components/ui/button"
+import { LogOutButton } from "./log-out-button"
+import { Suspense } from "react"
 
 interface DashboardNavProps {
     name: string
@@ -37,9 +37,9 @@ export function DashboardNav({ name, portfolioName }: DashboardNavProps) {
             <p className="font-medium text-foreground">{name}</p>
             <p className="text-muted-foreground">{portfolioName}</p>
           </div>
-          <Button variant="outline" size="sm">
-            Sign Out
-          </Button>
+          <Suspense fallback={null}>
+            <LogOutButton />
+          </Suspense>
         </div>
       </div>
     </header>
