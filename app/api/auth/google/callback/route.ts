@@ -49,7 +49,7 @@ export const GET = async (req: NextRequest) => {
     
         const data =  {
             ...response,
-            access_token: resData.access_token,
+            // access_token: resData.access_token,
             expires_in: resData.expires_in,
         };
 

@@ -2,15 +2,19 @@
 import Link from "next/link"
 import { LogOutButton } from "./log-out-button"
 import { Suspense } from "react"
+import { getUserSession } from "@/lib/session"
+import { redirect } from "next/navigation"
 
-interface DashboardNavProps {
-    name: string
-    portfolioName: string
-}
+export const DashboardNav = async () => {
 
-export function DashboardNav({ name, portfolioName }: DashboardNavProps) {
+  const response = await getUserSession();
+  
+  if(!response) {
+    return redirect('/');
+  }
+
   return (
-    <header className="border-b border-border sticky top-0 bg-background/95 backdrop-blur">
+    <header className="border-b border-border sticky top-0 z-10 bg-background/95 backdrop-blur">
       <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
         <div className="flex items-center gap-8">
           <Link href="/" className="text-2xl font-bold text-foreground">
@@ -34,8 +38,7 @@ export function DashboardNav({ name, portfolioName }: DashboardNavProps) {
 
         <div className="flex items-center gap-4">
           <div className="hidden sm:block text-right text-sm">
-            <p className="font-medium text-foreground">{name}</p>
-            <p className="text-muted-foreground">{portfolioName}</p>
+            <p className="font-medium text-foreground">{response.name}</p>
           </div>
           <Suspense fallback={null}>
             <LogOutButton />

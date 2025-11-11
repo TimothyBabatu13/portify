@@ -2,7 +2,6 @@ import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Card } from "@/components/ui/card"
 import { ArrowUpRight, ArrowDownRight } from "lucide-react"
-import { DashboardNav } from "./components/dashboard-nav"
 import { PerformanceChart } from "./components/perfomance-chart"
 import { RecentItemCard } from "./components/recent-item-card"
 import { redirect } from "next/navigation"
@@ -34,14 +33,8 @@ export const UI = async () => {
     return redirect('/');
   }
 
-  console.log(response.family_name)
   return (
     <main className="min-h-screen bg-background">
-      <DashboardNav 
-        name={response.name}
-        portfolioName={response.name.split(" ")[0] + "'s Portfolio"}
-      />
-
       <div className="max-w-7xl mx-auto px-6 py-8">
         <div className="mb-10">
           <div className="flex items-center justify-between">
@@ -53,9 +46,9 @@ export const UI = async () => {
                 Track your portfolio performance and manage your creative work
               </p>
             </div>
-            <Link href="/dashboard/portfolio">
+            <Link href="/dashboard/create-portfolio">
               <Button size="lg" className="font-medium">
-                Edit Portfolio
+                Create Portfolio
               </Button>
             </Link>
           </div>
